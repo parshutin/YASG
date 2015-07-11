@@ -1,0 +1,9 @@
+﻿# Unity .gitignore file.
+Temp/
+UnityVS.YASG.sln
+UnityVS.YASG.v12.suo
+UnityVS.YASG.CSharp.csproj
+UnityVS.YASG.CSharp.Plugins.csproj
+obj/
+Library/
+/Assets/Plugins

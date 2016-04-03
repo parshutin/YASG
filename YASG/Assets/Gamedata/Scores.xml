@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<ScoreTable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Scores>
+    <UserScore>
+      <Name>sdfsdfsdf</Name>
+      <Score>399</Score>
+    </UserScore>
+    <UserScore>
+      <Name>орорр</Name>
+      <Score>390</Score>
+    </UserScore>
+    <UserScore>
+      <Name>sd</Name>
+      <Score>380</Score>
+    </UserScore>
+    <UserScore>
+      <Name>sd1</Name>
+      <Score>370</Score>
+    </UserScore>
+    <UserScore>
+      <Name>sd2</Name>
+      <Score>360</Score>
+    </UserScore>
+    <UserScore>
+      <Name>sd3</Name>
+      <Score>350</Score>
+    </UserScore>
+    <UserScore>
+      <Name>sd4</Name>
+      <Score>330</Score>
+    </UserScore>
+    <UserScore>
+      <Name>sd5</Name>
+      <Score>320</Score>
+    </UserScore>
+    <UserScore>
+      <Name>sd6</Name>
+      <Score>310</Score>
+    </UserScore>
+    <UserScore>
+      <Name>sd7</Name>
+      <Score>300</Score>
+    </UserScore>
+  </Scores>
+</ScoreTable>

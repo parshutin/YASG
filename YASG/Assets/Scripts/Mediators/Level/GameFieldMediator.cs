@@ -32,8 +32,15 @@ namespace Assets.Scripts.Mediators.Level
         [Inject]
         public RemoveFoodSignal RemoveFoodSignal { get; set; }
 
+        [Inject]
+        public CheckFieldSignal CheckFieldSignal { get; set; }
+
+        [Inject]
+        public StartGameSignal StartGameSignal { get; set; }
+
         public override void OnRegister()
         {
+            StartGameSignal.AddListener(StartGame);
             Field.CreateBodyPart += FieldOnCreateBodyPart;
             Field.FoodIted += OnFoodIted;
             GenerateFieldSignal.Dispatch(View.transform);
@@ -43,6 +50,11 @@ namespace Assets.Scripts.Mediators.Level
         {
             RemoveFoodSignal.Dispatch(coordinates);
             //Do other stuff with food, like score changed and other
+        }
+
+        private void StartGame()
+        {
+            _gameStarted = true;
         }
 
         private void FieldOnCreateBodyPart(Cell cell)
@@ -73,7 +85,7 @@ namespace Assets.Scripts.Mediators.Level
 
         private void CheckField()
         {
-            
+            CheckFieldSignal.Dispatch();
         }
     }
 }

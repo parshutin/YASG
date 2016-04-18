@@ -33,10 +33,12 @@ namespace Assets.Scripts.Contexts
             injectionBinder.Bind<IPool<GameObject>>().To<Pool<GameObject>>().ToSingleton().ToName(GameElement.WallPool);
             injectionBinder.Bind<IPool<GameObject>>().To<Pool<GameObject>>().ToSingleton().ToName(GameElement.SnakePartsPool);
             injectionBinder.Bind<IPool<GameObject>>().To<Pool<GameObject>>().ToSingleton().ToName(GameElement.FoodPool);
+
             injectionBinder.Bind<GenerateFieldSignal>().ToSingleton();
             injectionBinder.Bind<CreateSnakeBodyPartSignal>().ToSingleton();
             injectionBinder.Bind<CreateFoodSignal>().ToSingleton();
             injectionBinder.Bind<RemoveFoodSignal>().ToSingleton();
+            injectionBinder.Bind<CheckFieldSignal>().ToSingleton();
 
             mediationBinder.Bind<GameFieldView>().To<GameFieldMediator>();
             mediationBinder.Bind<SnakeBodyPartView>().To<SnakeBodyPartMediator>();
@@ -45,6 +47,7 @@ namespace Assets.Scripts.Contexts
             commandBinder.Bind<CreateSnakeBodyPartSignal>().To<CreateSnakeBodyPartCommand>();
             commandBinder.Bind<CreateFoodSignal>().To<CreateFoodCommand>();
             commandBinder.Bind<RemoveFoodSignal>().To<RemoveFoodCommand>();
+            commandBinder.Bind<CheckFieldSignal>().To<CheckFieldCommand>();
         }
 
         protected override void postBindings()

@@ -197,10 +197,7 @@ namespace Assets.Scripts
                     if (_field.CanCreateFood)
                     {
                         CreateFood();
-                        //this._cells[_field.GetFoodCell()].GetComponent<SpriteRenderer>().sprite =
-                        //  _fieldSpritesHelper.GetSprite(CellType.Food);
                     }
-
                     
                     _field.MoveSnake();
                     for (int i = 0; i < _snake.Count; i++)

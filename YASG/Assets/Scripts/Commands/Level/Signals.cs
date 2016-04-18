@@ -21,12 +21,14 @@ namespace Assets.Scripts.Commands.Level
 
     public class StartLevelSignal : Signal { }
 
-    public class PlayGameSignal : Signal { }
+    public class StartGameSignal : Signal { }
 
     public class RestartGameSignal : Signal { }
 
     public class StopGameSignal : Signal { }
 
     public class AddSnakePartSignal : Signal<SnakeBodyPartMediator> { }
+
+    public class CheckFieldSignal : Signal { }
     
 }

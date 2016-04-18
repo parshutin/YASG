@@ -24,7 +24,7 @@ namespace Assets.Scripts.Core
 
         public event Action<Cell> CreateBodyPart;
 
-        public event Action FoodIted;
+        public event Action<int[]> FoodIted;
 
         public event Action LifeLosed;
 
@@ -233,7 +233,7 @@ namespace Assets.Scripts.Core
                     {
                         _canCreateFood = true;
                         foodIted = true;
-                        FoodIted();
+                        FoodIted(cell.Coorditanes);
                     }
 
                     cell.Type = Snake[i].Type;

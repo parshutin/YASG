@@ -136,7 +136,7 @@ namespace Assets.Scripts
             _field.Clear();
         }
 
-        private void OnFoodIted()
+        private void OnFoodIted(int[] coordinates)
         {
             _timer.ChangeTimeInterval(_deltaSpeed);
             _foodGameObject.SetActive(false);

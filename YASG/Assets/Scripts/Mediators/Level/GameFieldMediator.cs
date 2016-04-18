@@ -28,16 +28,21 @@ namespace Assets.Scripts.Mediators.Level
 
         [Inject]
         public CreateFoodSignal CreateFoodSignal { get; set; }
-        //private Timer _timer;
+
+        [Inject]
+        public RemoveFoodSignal RemoveFoodSignal { get; set; }
 
         public override void OnRegister()
         {
             Field.CreateBodyPart += FieldOnCreateBodyPart;
             Field.FoodIted += OnFoodIted;
+            GenerateFieldSignal.Dispatch(View.transform);
         }
 
-        private void OnFoodIted()
+        private void OnFoodIted(int[] coordinates)
         {
+            RemoveFoodSignal.Dispatch(coordinates);
+            //Do other stuff with food, like score changed and other
         }
 
         private void FieldOnCreateBodyPart(Cell cell)
@@ -53,7 +58,7 @@ namespace Assets.Scripts.Mediators.Level
 
         private void Start()
         {
-            GenerateFieldSignal.Dispatch(View.transform);
+            //GenerateFieldSignal.Dispatch(View.transform);
         }
 
         private void Update()

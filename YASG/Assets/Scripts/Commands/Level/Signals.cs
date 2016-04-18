@@ -17,7 +17,7 @@ namespace Assets.Scripts.Commands.Level
 
     public class CreateFoodSignal : Signal { }
 
-    public class RemoveFoodSignal : Signal<GameObject> { }
+    public class RemoveFoodSignal : Signal<int[]> { }
 
     public class StartLevelSignal : Signal { }
 
@@ -28,4 +28,5 @@ namespace Assets.Scripts.Commands.Level
     public class StopGameSignal : Signal { }
 
     public class AddSnakePartSignal : Signal<SnakeBodyPartMediator> { }
+    
 }

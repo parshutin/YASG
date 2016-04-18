@@ -40,7 +40,7 @@ namespace Assets.Scripts.Core
             SnakeLenght = _gameField.Snake.Count;
         }
 
-        private void GameFieldOnFoodIted()
+        private void GameFieldOnFoodIted(int[] coordinates)
         {
             SnakeLenght++;
             Score += PointRate;

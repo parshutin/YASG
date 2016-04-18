@@ -1,19 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Assets.Scripts.Commands.Level;
-using Assets.Scripts.Commands.Menu;
+﻿using Assets.Scripts.Commands.Level;
+using Assets.Scripts.Commands.Level.GameField;
 using Assets.Scripts.Core;
 using Assets.Scripts.Enums;
 using Assets.Scripts.Helpers;
 using Assets.Scripts.Mediators.Game;
 using Assets.Scripts.Mediators.Level;
-using Assets.Scripts.Mediators.Menu;
 using Assets.Scripts.Snake;
 using Assets.Scripts.Views.Game;
 using Assets.Scripts.Views.Level;
-using Assets.Scripts.Views.Menu;
 using strange.extensions.command.api;
 using strange.extensions.command.impl;
 using strange.extensions.context.impl;
@@ -35,17 +29,22 @@ namespace Assets.Scripts.Contexts
 
             injectionBinder.Bind<Field>().ToSingleton();
             injectionBinder.Bind<SnakeContainer>().ToSingleton();
+            injectionBinder.Bind<FoodContainer>().ToSingleton();
             injectionBinder.Bind<IPool<GameObject>>().To<Pool<GameObject>>().ToSingleton().ToName(GameElement.WallPool);
             injectionBinder.Bind<IPool<GameObject>>().To<Pool<GameObject>>().ToSingleton().ToName(GameElement.SnakePartsPool);
             injectionBinder.Bind<IPool<GameObject>>().To<Pool<GameObject>>().ToSingleton().ToName(GameElement.FoodPool);
             injectionBinder.Bind<GenerateFieldSignal>().ToSingleton();
             injectionBinder.Bind<CreateSnakeBodyPartSignal>().ToSingleton();
-
-            commandBinder.Bind<GenerateFieldSignal>().To<GenerateFieldCommand>();
-            commandBinder.Bind<CreateSnakeBodyPartSignal>().To<CreateSnakeBodyPartCommand>();
+            injectionBinder.Bind<CreateFoodSignal>().ToSingleton();
+            injectionBinder.Bind<RemoveFoodSignal>().ToSingleton();
 
             mediationBinder.Bind<GameFieldView>().To<GameFieldMediator>();
             mediationBinder.Bind<SnakeBodyPartView>().To<SnakeBodyPartMediator>();
+
+            commandBinder.Bind<GenerateFieldSignal>().To<GenerateFieldCommand>();
+            commandBinder.Bind<CreateSnakeBodyPartSignal>().To<CreateSnakeBodyPartCommand>();
+            commandBinder.Bind<CreateFoodSignal>().To<CreateFoodCommand>();
+            commandBinder.Bind<RemoveFoodSignal>().To<RemoveFoodCommand>();
         }
 
         protected override void postBindings()

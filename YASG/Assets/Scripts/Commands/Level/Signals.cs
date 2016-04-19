@@ -30,5 +30,8 @@ namespace Assets.Scripts.Commands.Level
     public class AddSnakePartSignal : Signal<SnakeBodyPartMediator> { }
 
     public class CheckFieldSignal : Signal { }
-    
+
+    public class ChangeTimerIntervalSignal : Signal { }
+
+    public class ChangeMovementDirectionSignal : Signal<MovementDirection> { }
 }

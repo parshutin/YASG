@@ -39,6 +39,7 @@ namespace Assets.Scripts.Contexts
             injectionBinder.Bind<CreateFoodSignal>().ToSingleton();
             injectionBinder.Bind<RemoveFoodSignal>().ToSingleton();
             injectionBinder.Bind<CheckFieldSignal>().ToSingleton();
+            injectionBinder.Bind<ChangeTimerIntervalSignal>().ToSingleton();
 
             mediationBinder.Bind<GameFieldView>().To<GameFieldMediator>();
             mediationBinder.Bind<SnakeBodyPartView>().To<SnakeBodyPartMediator>();
@@ -48,6 +49,7 @@ namespace Assets.Scripts.Contexts
             commandBinder.Bind<CreateFoodSignal>().To<CreateFoodCommand>();
             commandBinder.Bind<RemoveFoodSignal>().To<RemoveFoodCommand>();
             commandBinder.Bind<CheckFieldSignal>().To<CheckFieldCommand>();
+            commandBinder.Bind<ChangeTimerIntervalSignal>().To<ChangeTimerIntervalCommand>();
         }
 
         protected override void postBindings()

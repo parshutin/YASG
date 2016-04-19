@@ -11,6 +11,7 @@ namespace Assets.Scripts.Helpers
         private float curTime;
         private float secondsTime;
         private float secondsCount;
+        private float delta;
 
         public float elapsedTime
         {
@@ -90,11 +91,24 @@ namespace Assets.Scripts.Helpers
             }
         }
 
+        public void SetDelta(float delta)
+        {
+            this.delta = delta;
+        }
+
         public void ChangeTimeInterval(float interval)
         {
             if (time + interval > 0.05f)
             {
                 time += interval;
+            }
+        }
+
+        public void ChangeTimeInterval()
+        {
+            if (time + delta > 0.05f)
+            {
+                time += delta;
             }
         }
 

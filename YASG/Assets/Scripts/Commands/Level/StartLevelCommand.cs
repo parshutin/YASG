@@ -11,6 +11,8 @@ namespace Assets.Scripts.Commands.Level
     {
         private const float StarterInterval = 0.5f;
 
+        private const float DeltaSpeed = -0.2f;
+
         [Inject]
         public Timer Timer { get; set; }
 
@@ -21,7 +23,7 @@ namespace Assets.Scripts.Commands.Level
         {
             StartGameSignal.Dispatch();
             Timer.loop = true;
-            //_deltaSpeed = -0.02f;
+            Timer.SetDelta(DeltaSpeed);
             Timer.Start(StarterInterval);
         }
     }

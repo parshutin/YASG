@@ -38,6 +38,9 @@ namespace Assets.Scripts.Mediators.Level
         [Inject]
         public StartGameSignal StartGameSignal { get; set; }
 
+        [Inject]
+        public ChangeTimerIntervalSignal ChangeTimerIntervalSignal { get; set; }
+        
         public override void OnRegister()
         {
             StartGameSignal.AddListener(StartGame);
@@ -49,6 +52,7 @@ namespace Assets.Scripts.Mediators.Level
         private void OnFoodIted(int[] coordinates)
         {
             RemoveFoodSignal.Dispatch(coordinates);
+            ChangeTimerIntervalSignal.Dispatch();
             //Do other stuff with food, like score changed and other
         }
 

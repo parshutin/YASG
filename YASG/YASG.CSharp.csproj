@@ -83,11 +83,18 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Commands\Level\GameField\ChangeMovementDirectionCommand.cs" />
+    <Compile Include="Assets\Scripts\Commands\Level\GameField\ChangeTimerIntervalCommand.cs" />
     <Compile Include="Assets\Scripts\Commands\Level\GameField\CheckFieldCommand.cs" />
     <Compile Include="Assets\Scripts\Commands\Level\GameField\CreateFoodCommand.cs" />
     <Compile Include="Assets\Scripts\Commands\Level\GameField\CreateSnakeBodyPartCommand.cs" />
+    <Compile Include="Assets\Scripts\Commands\Level\GameField\FoodItedCommand.cs" />
     <Compile Include="Assets\Scripts\Commands\Level\GameField\GenerateFieldCommand.cs" />
     <Compile Include="Assets\Scripts\Commands\Level\GameField\RemoveFoodCommand.cs" />
+    <Compile Include="Assets\Scripts\Commands\Level\GameField\CleanSnakeContainerCommand.cs" />
+    <Compile Include="Assets\Scripts\Commands\Level\GameField\RestartGameCommand.cs" />
+    <Compile Include="Assets\Scripts\Commands\Level\GameField\StopGameCommand.cs" />
+    <Compile Include="Assets\Scripts\Commands\Level\LifeLostCommand.cs" />
     <Compile Include="Assets\Scripts\Commands\Level\Signals.cs" />
     <Compile Include="Assets\Scripts\Commands\Level\StartLevelCommand.cs" />
     <Compile Include="Assets\Scripts\Commands\Menu\ClearScoresCommand.cs" />
@@ -120,10 +127,14 @@
     <Compile Include="Assets\Scripts\Mediators\Level\AudioMediator.cs" />
     <Compile Include="Assets\Scripts\Mediators\Level\CameraMediator.cs" />
     <Compile Include="Assets\Scripts\Mediators\Level\GameFieldMediator.cs" />
+    <Compile Include="Assets\Scripts\Mediators\Level\GameOverPopupMediator.cs" />
+    <Compile Include="Assets\Scripts\Mediators\Level\InputHelperMediator.cs" />
+    <Compile Include="Assets\Scripts\Mediators\Level\LevelHUDMediator.cs" />
     <Compile Include="Assets\Scripts\Mediators\Level\SnakeBodyPartMediator.cs" />
     <Compile Include="Assets\Scripts\Mediators\Menu\MenuMediator.cs" />
     <Compile Include="Assets\Scripts\Mediators\Menu\ScoresMediator.cs" />
     <Compile Include="Assets\Scripts\MenuRoot.cs" />
+    <Compile Include="Assets\Scripts\Snake\FoodContainer.cs" />
     <Compile Include="Assets\Scripts\Snake\SnakeBodyPart.cs" />
     <Compile Include="Assets\Scripts\Snake\SnakeContainer.cs" />
     <Compile Include="Assets\Scripts\Snake\SnakePart.cs" />
@@ -138,9 +149,13 @@
     <Compile Include="Assets\Scripts\UserData\UserScore.cs" />
     <Compile Include="Assets\Scripts\Views\Level\GameField\AudioView.cs" />
     <Compile Include="Assets\Scripts\Views\Level\GameField\CameraView.cs" />
+    <Compile Include="Assets\Scripts\Views\Level\GameField\FoodView.cs" />
     <Compile Include="Assets\Scripts\Views\Level\GameField\GameFieldView.cs" />
+    <Compile Include="Assets\Scripts\Views\Level\GameField\InputHelperView.cs" />
     <Compile Include="Assets\Scripts\Views\Level\GameField\SnakeBodyPartView.cs" />
+    <Compile Include="Assets\Scripts\Views\Level\UI\GameOverPopupView.cs" />
     <Compile Include="Assets\Scripts\Views\Level\UI\LevelHUDView.cs" />
+    <Compile Include="Assets\Scripts\Views\Level\UI\SaveScoresPopupView.cs" />
     <Compile Include="Assets\Scripts\Views\Menu\MenuView.cs" />
     <Compile Include="Assets\Scripts\Views\Menu\ScoresView.cs" />
     <Compile Include="Assets\StrangeIoC\examples\Assets\scripts\multiplecontexts\game\GameContext.cs" />
@@ -221,6 +236,9 @@
     <None Include="Assets\Plugins\GDataDB\Unity.Newtonsoft.Json.xml" />
     <None Include="Assets\Plugins\StrangeIoC\LICENSE-2.0.txt" />
     <None Include="Assets\Plugins\StrangeIoC\README.txt" />
+    <None Include="Assets\Plugins\StrangeIoC\examples\Assets\scripts\multiplecontexts\ReadMe.txt" />
+    <None Include="Assets\Plugins\StrangeIoC\examples\Assets\scripts\myfirstproject\ReadMe.txt" />
+    <None Include="Assets\Plugins\StrangeIoC\examples\Assets\scripts\signalsproject\ReadMe.txt" />
     <None Include="Assets\Plugins\StrangeIoC\scripts\strange\extensions\ReadMe.txt" />
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
     <None Include="Assets\StrangeIoC\examples\Assets\ProjectSettings\ProjectVersion.txt" />
@@ -228,5 +246,6 @@
     <None Include="Assets\StrangeIoC\examples\Assets\scripts\myfirstproject\ReadMe.txt" />
     <None Include="Assets\StrangeIoC\examples\Assets\scripts\signalsproject\ReadMe.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

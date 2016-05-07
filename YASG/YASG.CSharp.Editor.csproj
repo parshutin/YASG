@@ -134,6 +134,9 @@
     <None Include="Assets\Plugins\GDataDB\Unity.Newtonsoft.Json.xml" />
     <None Include="Assets\Plugins\StrangeIoC\LICENSE-2.0.txt" />
     <None Include="Assets\Plugins\StrangeIoC\README.txt" />
+    <None Include="Assets\Plugins\StrangeIoC\examples\Assets\scripts\multiplecontexts\ReadMe.txt" />
+    <None Include="Assets\Plugins\StrangeIoC\examples\Assets\scripts\myfirstproject\ReadMe.txt" />
+    <None Include="Assets\Plugins\StrangeIoC\examples\Assets\scripts\signalsproject\ReadMe.txt" />
     <None Include="Assets\Plugins\StrangeIoC\scripts\strange\extensions\ReadMe.txt" />
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
     <None Include="Assets\StrangeIoC\examples\Assets\ProjectSettings\ProjectVersion.txt" />

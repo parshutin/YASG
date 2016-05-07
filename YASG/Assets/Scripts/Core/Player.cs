@@ -11,8 +11,6 @@ namespace Assets.Scripts.Core
 
         private const int PointRate = 5;
 
-        private readonly Field _gameField;
-
         public int Lifes { get; private set; }
 
         public int SnakeLenght { get; private set; }
@@ -25,11 +23,9 @@ namespace Assets.Scripts.Core
 
         public event Action<int> OnLifesCountChange;
 
-        public Player(Field gameField)
+        public void Init(Field gameField)
         {
-            _gameField = gameField;
-            _gameField.FoodIted += GameFieldOnFoodIted;
-            _gameField.LifeLosed += RemoveLife;
+            //_gameField = gameField;
             Init();
         }
 
@@ -37,7 +33,15 @@ namespace Assets.Scripts.Core
         {
             Lifes = MaxLifes;
             Score = 0;
-            SnakeLenght = _gameField.Snake.Count;
+            SnakeLenght = 4;
+            //SnakeLenght = _gameField.Snake.Count;
+        }
+
+
+        public void AddScore()
+        {
+            SnakeLenght++;
+            Score += PointRate;
         }
 
         private void GameFieldOnFoodIted(int[] coordinates)
@@ -51,14 +55,14 @@ namespace Assets.Scripts.Core
         public void RemoveLife()
         {
             Lifes--;
-            SnakeLenght = _gameField.Snake.Count;
-            OnSnakeLengthChange(SnakeLenght);
+            //SnakeLenght = _gameField.Snake.Count;
+            //OnSnakeLengthChange(SnakeLenght);
             if (Lifes == 0)
             {
                 //TODO: GameOver
             }
 
-            OnLifesCountChange(Lifes);
+            //OnLifesCountChange(Lifes);
         }
 
     }

@@ -31,6 +31,18 @@ namespace Assets.Scripts.Snake
             _snake[index2] = temp;
         }
 
+        public void RemoveItem(SnakeBodyPartView view)
+        {
+            foreach (var partView in _snake)
+            {
+                if (partView == view)
+                {
+                    _snake.Remove(view);
+                    return;
+                }
+            }
+        }
+
         public void Clear()
         {
             _snake.Clear();

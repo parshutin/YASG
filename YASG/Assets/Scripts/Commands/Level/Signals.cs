@@ -34,4 +34,18 @@ namespace Assets.Scripts.Commands.Level
     public class ChangeTimerIntervalSignal : Signal { }
 
     public class ChangeMovementDirectionSignal : Signal<MovementDirection> { }
+
+    public class LifeLostSignal : Signal { }
+
+    public class FoodItedSignal : Signal { }
+
+    public class SnakeLengthChangedSignal : Signal<int> { }
+
+    public class ScoreChangedSignal : Signal<int> { }
+
+    public class LifesCountChangedSignal : Signal<int> { }
+
+    public class CleanSnakeContainerSignal :Signal { }
+
+    public class StopFieldCheckingSignal : Signal { }
 }

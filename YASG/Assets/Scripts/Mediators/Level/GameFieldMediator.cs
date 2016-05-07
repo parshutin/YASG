@@ -40,17 +40,42 @@ namespace Assets.Scripts.Mediators.Level
 
         [Inject]
         public ChangeTimerIntervalSignal ChangeTimerIntervalSignal { get; set; }
-        
+
+        [Inject]
+        public StartLevelSignal StartLevelSignal { get; set; }
+
+        [Inject]
+        public LifeLostSignal LisLostSignal { get; set; }
+
+        [Inject]
+        public FoodItedSignal FoodItedSignal { get; set; }
+
+        [Inject]
+        public StopFieldCheckingSignal StopFieldCheckingSignal { get; set; }
+
         public override void OnRegister()
         {
             StartGameSignal.AddListener(StartGame);
+            Field.LifeLosed += FieldOnLifeLosed;
             Field.CreateBodyPart += FieldOnCreateBodyPart;
             Field.FoodIted += OnFoodIted;
-            GenerateFieldSignal.Dispatch(View.transform);
+            StopFieldCheckingSignal.AddListener(StopFieldChecking);
+            StartLevelSignal.Dispatch();
+        }
+
+        private void StopFieldChecking()
+        {
+            _gameStarted = false;
+        }
+
+        private void FieldOnLifeLosed()
+        {
+            LisLostSignal.Dispatch();
         }
 
         private void OnFoodIted(int[] coordinates)
         {
+            FoodItedSignal.Dispatch();
             RemoveFoodSignal.Dispatch(coordinates);
             ChangeTimerIntervalSignal.Dispatch();
             //Do other stuff with food, like score changed and other
@@ -58,6 +83,7 @@ namespace Assets.Scripts.Mediators.Level
 
         private void StartGame()
         {
+            GenerateFieldSignal.Dispatch(View.transform);
             _gameStarted = true;
         }
 
@@ -68,6 +94,9 @@ namespace Assets.Scripts.Mediators.Level
 
         public override void OnRemove()
         {
+            StartGameSignal.RemoveListener(StartGame);
+            StopFieldCheckingSignal.RemoveListener(StopFieldChecking);
+            Field.LifeLosed -= FieldOnLifeLosed;
             Field.CreateBodyPart -= FieldOnCreateBodyPart;
             Field.FoodIted -= OnFoodIted;
         }

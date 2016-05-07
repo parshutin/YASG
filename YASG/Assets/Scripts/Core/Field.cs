@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using UnityEngine;
+using Random = System.Random;
 
 namespace Assets.Scripts.Core
 {
@@ -316,76 +318,139 @@ namespace Assets.Scripts.Core
 
         private void Init()
         {
-            cellTypes.Add(new CellInfo(CellType.BottomLeftTurn, MovementDirection.Right, MovementDirection.Down), CellType.HorisontalBody);
-            cellTypes.Add(new CellInfo(CellType.BottomLeftTurn, MovementDirection.Up, MovementDirection.Left), CellType.VerticalBody);
-            
-            cellTypes.Add(new CellInfo(CellType.BottomLeftTurn, MovementDirection.Right, MovementDirection.Up), CellType.TopLeftTurn);
-            cellTypes.Add(new CellInfo(CellType.BottomLeftTurn, MovementDirection.Left, MovementDirection.Up), CellType.TopRightTurn);
-            cellTypes.Add(new CellInfo(CellType.BottomLeftTurn, MovementDirection.Down, MovementDirection.Right), CellType.TopRightTurn);
-            cellTypes.Add(new CellInfo(CellType.BottomLeftTurn, MovementDirection.Up, MovementDirection.Right), CellType.BottomRightTurn);
+            try
+            {
 
 
-            cellTypes.Add(new CellInfo(CellType.BottomRightTurn, MovementDirection.Left, MovementDirection.Down), CellType.HorisontalBody);
-            cellTypes.Add(new CellInfo(CellType.BottomRightTurn, MovementDirection.Up, MovementDirection.Right), CellType.VerticalBody);
+                cellTypes.Add(new CellInfo(CellType.BottomLeftTurn, MovementDirection.Right, MovementDirection.Down),
+                    CellType.HorisontalBody);
+                cellTypes.Add(new CellInfo(CellType.BottomLeftTurn, MovementDirection.Up, MovementDirection.Left),
+                    CellType.VerticalBody);
 
-            cellTypes.Add(new CellInfo(CellType.BottomRightTurn, MovementDirection.Right, MovementDirection.Up), CellType.TopLeftTurn);
-            cellTypes.Add(new CellInfo(CellType.BottomRightTurn, MovementDirection.Left, MovementDirection.Up), CellType.TopRightTurn);
-            cellTypes.Add(new CellInfo(CellType.BottomRightTurn, MovementDirection.Down, MovementDirection.Left), CellType.TopLeftTurn);
-            cellTypes.Add(new CellInfo(CellType.BottomRightTurn, MovementDirection.Up, MovementDirection.Left), CellType.BottomLeftTurn);
-
-
-            cellTypes.Add(new CellInfo(CellType.TopLeftTurn, MovementDirection.Down, MovementDirection.Left), CellType.VerticalBody);
-            cellTypes.Add(new CellInfo(CellType.TopLeftTurn, MovementDirection.Right, MovementDirection.Up), CellType.HorisontalBody);
-
-            cellTypes.Add(new CellInfo(CellType.TopLeftTurn, MovementDirection.Right, MovementDirection.Down), CellType.BottomLeftTurn);
-            cellTypes.Add(new CellInfo(CellType.TopLeftTurn, MovementDirection.Left, MovementDirection.Down), CellType.BottomRightTurn);
-            cellTypes.Add(new CellInfo(CellType.TopLeftTurn, MovementDirection.Down, MovementDirection.Right), CellType.TopRightTurn);
-            cellTypes.Add(new CellInfo(CellType.TopLeftTurn, MovementDirection.Up, MovementDirection.Right), CellType.BottomRightTurn);
-
-            cellTypes.Add(new CellInfo(CellType.TopRightTurn, MovementDirection.Down, MovementDirection.Right), CellType.VerticalBody);
-            cellTypes.Add(new CellInfo(CellType.TopRightTurn, MovementDirection.Left, MovementDirection.Up), CellType.HorisontalBody);
+                cellTypes.Add(new CellInfo(CellType.BottomLeftTurn, MovementDirection.Right, MovementDirection.Up),
+                    CellType.TopLeftTurn);
+                cellTypes.Add(new CellInfo(CellType.BottomLeftTurn, MovementDirection.Left, MovementDirection.Up),
+                    CellType.TopRightTurn);
+                cellTypes.Add(new CellInfo(CellType.BottomLeftTurn, MovementDirection.Down, MovementDirection.Right),
+                    CellType.TopRightTurn);
+                cellTypes.Add(new CellInfo(CellType.BottomLeftTurn, MovementDirection.Up, MovementDirection.Right),
+                    CellType.BottomRightTurn);
 
 
-            cellTypes.Add(new CellInfo(CellType.TopRightTurn, MovementDirection.Right, MovementDirection.Down), CellType.BottomLeftTurn);
-            cellTypes.Add(new CellInfo(CellType.TopRightTurn, MovementDirection.Left, MovementDirection.Down), CellType.BottomRightTurn);
-            cellTypes.Add(new CellInfo(CellType.TopRightTurn, MovementDirection.Down, MovementDirection.Left), CellType.TopLeftTurn);
-            cellTypes.Add(new CellInfo(CellType.TopRightTurn, MovementDirection.Up, MovementDirection.Left), CellType.BottomLeftTurn);
+                cellTypes.Add(new CellInfo(CellType.BottomRightTurn, MovementDirection.Left, MovementDirection.Down),
+                    CellType.HorisontalBody);
+                cellTypes.Add(new CellInfo(CellType.BottomRightTurn, MovementDirection.Up, MovementDirection.Right),
+                    CellType.VerticalBody);
+
+                cellTypes.Add(new CellInfo(CellType.BottomRightTurn, MovementDirection.Right, MovementDirection.Up),
+                    CellType.TopLeftTurn);
+                cellTypes.Add(new CellInfo(CellType.BottomRightTurn, MovementDirection.Left, MovementDirection.Up),
+                    CellType.TopRightTurn);
+                cellTypes.Add(new CellInfo(CellType.BottomRightTurn, MovementDirection.Down, MovementDirection.Left),
+                    CellType.TopLeftTurn);
+                cellTypes.Add(new CellInfo(CellType.BottomRightTurn, MovementDirection.Up, MovementDirection.Left),
+                    CellType.BottomLeftTurn);
 
 
-            cellTypes.Add(new CellInfo(CellType.BottomLeftTurn, MovementDirection.Up, MovementDirection.Up), CellType.VerticalBody);
-            cellTypes.Add(new CellInfo(CellType.BottomLeftTurn, MovementDirection.Down, MovementDirection.Down), CellType.VerticalBody);
-            cellTypes.Add(new CellInfo(CellType.BottomLeftTurn, MovementDirection.Right, MovementDirection.Right), CellType.HorisontalBody);
-            cellTypes.Add(new CellInfo(CellType.BottomLeftTurn, MovementDirection.Left, MovementDirection.Left), CellType.HorisontalBody);
+                cellTypes.Add(new CellInfo(CellType.TopLeftTurn, MovementDirection.Down, MovementDirection.Left),
+                    CellType.VerticalBody);
+                cellTypes.Add(new CellInfo(CellType.TopLeftTurn, MovementDirection.Right, MovementDirection.Up),
+                    CellType.HorisontalBody);
 
-            cellTypes.Add(new CellInfo(CellType.BottomRightTurn, MovementDirection.Up, MovementDirection.Up), CellType.VerticalBody);
-            cellTypes.Add(new CellInfo(CellType.BottomRightTurn, MovementDirection.Down, MovementDirection.Down), CellType.VerticalBody);
-            cellTypes.Add(new CellInfo(CellType.BottomRightTurn, MovementDirection.Right, MovementDirection.Right), CellType.HorisontalBody);
-            cellTypes.Add(new CellInfo(CellType.BottomRightTurn, MovementDirection.Left, MovementDirection.Left), CellType.HorisontalBody);
+                cellTypes.Add(new CellInfo(CellType.TopLeftTurn, MovementDirection.Right, MovementDirection.Down),
+                    CellType.BottomLeftTurn);
+                cellTypes.Add(new CellInfo(CellType.TopLeftTurn, MovementDirection.Left, MovementDirection.Down),
+                    CellType.BottomRightTurn);
+                cellTypes.Add(new CellInfo(CellType.TopLeftTurn, MovementDirection.Down, MovementDirection.Right),
+                    CellType.TopRightTurn);
+                cellTypes.Add(new CellInfo(CellType.TopLeftTurn, MovementDirection.Up, MovementDirection.Right),
+                    CellType.BottomRightTurn);
 
-            cellTypes.Add(new CellInfo(CellType.TopRightTurn, MovementDirection.Up, MovementDirection.Up), CellType.VerticalBody);
-            cellTypes.Add(new CellInfo(CellType.TopRightTurn, MovementDirection.Down, MovementDirection.Down), CellType.VerticalBody);
-            cellTypes.Add(new CellInfo(CellType.TopRightTurn, MovementDirection.Right, MovementDirection.Right), CellType.HorisontalBody);
-            cellTypes.Add(new CellInfo(CellType.TopRightTurn, MovementDirection.Left, MovementDirection.Left), CellType.HorisontalBody);
+                cellTypes.Add(new CellInfo(CellType.TopRightTurn, MovementDirection.Down, MovementDirection.Right),
+                    CellType.VerticalBody);
+                cellTypes.Add(new CellInfo(CellType.TopRightTurn, MovementDirection.Left, MovementDirection.Up),
+                    CellType.HorisontalBody);
 
-            cellTypes.Add(new CellInfo(CellType.TopLeftTurn, MovementDirection.Up, MovementDirection.Up), CellType.VerticalBody);
-            cellTypes.Add(new CellInfo(CellType.TopLeftTurn, MovementDirection.Down, MovementDirection.Down), CellType.VerticalBody);
-            cellTypes.Add(new CellInfo(CellType.TopLeftTurn, MovementDirection.Right, MovementDirection.Right), CellType.HorisontalBody);
-            cellTypes.Add(new CellInfo(CellType.TopLeftTurn, MovementDirection.Left, MovementDirection.Left), CellType.HorisontalBody);
 
-            cellTypes.Add(new CellInfo(CellType.HorisontalBody, MovementDirection.Right, MovementDirection.Right), CellType.HorisontalBody);
-            cellTypes.Add(new CellInfo(CellType.HorisontalBody, MovementDirection.Left, MovementDirection.Left), CellType.HorisontalBody);
-            cellTypes.Add(new CellInfo(CellType.VerticalBody, MovementDirection.Up, MovementDirection.Up), CellType.VerticalBody);
-            cellTypes.Add(new CellInfo(CellType.VerticalBody, MovementDirection.Down, MovementDirection.Down), CellType.VerticalBody);
-            //-------------------------------------------------------------------------------------------------------------------------------
-            tailDirection.Add(new CellInfo(CellType.BottomLeftTurn, MovementDirection.Right, MovementDirection.Right), MovementDirection.Up);
-            tailDirection.Add(new CellInfo(CellType.BottomLeftTurn, MovementDirection.Up, MovementDirection.Up), MovementDirection.Left);
-            tailDirection.Add(new CellInfo(CellType.BottomRightTurn, MovementDirection.Left, MovementDirection.Left), MovementDirection.Down);
-            tailDirection.Add(new CellInfo(CellType.BottomRightTurn, MovementDirection.Up, MovementDirection.Up), MovementDirection.Right);
+                cellTypes.Add(new CellInfo(CellType.TopRightTurn, MovementDirection.Right, MovementDirection.Down),
+                    CellType.BottomLeftTurn);
+                cellTypes.Add(new CellInfo(CellType.TopRightTurn, MovementDirection.Left, MovementDirection.Down),
+                    CellType.BottomRightTurn);
+                cellTypes.Add(new CellInfo(CellType.TopRightTurn, MovementDirection.Down, MovementDirection.Left),
+                    CellType.TopLeftTurn);
+                cellTypes.Add(new CellInfo(CellType.TopRightTurn, MovementDirection.Up, MovementDirection.Left),
+                    CellType.BottomLeftTurn);
 
-            tailDirection.Add(new CellInfo(CellType.TopLeftTurn, MovementDirection.Down, MovementDirection.Down), MovementDirection.Left);
-            tailDirection.Add(new CellInfo(CellType.TopLeftTurn, MovementDirection.Right, MovementDirection.Right), MovementDirection.Up);
-            tailDirection.Add(new CellInfo(CellType.TopRightTurn, MovementDirection.Down, MovementDirection.Down), MovementDirection.Right);
-            tailDirection.Add(new CellInfo(CellType.TopRightTurn, MovementDirection.Left, MovementDirection.Left), MovementDirection.Up);
+
+                cellTypes.Add(new CellInfo(CellType.BottomLeftTurn, MovementDirection.Up, MovementDirection.Up),
+                    CellType.VerticalBody);
+                cellTypes.Add(new CellInfo(CellType.BottomLeftTurn, MovementDirection.Down, MovementDirection.Down),
+                    CellType.VerticalBody);
+                cellTypes.Add(new CellInfo(CellType.BottomLeftTurn, MovementDirection.Right, MovementDirection.Right),
+                    CellType.HorisontalBody);
+                cellTypes.Add(new CellInfo(CellType.BottomLeftTurn, MovementDirection.Left, MovementDirection.Left),
+                    CellType.HorisontalBody);
+
+                cellTypes.Add(new CellInfo(CellType.BottomRightTurn, MovementDirection.Up, MovementDirection.Up),
+                    CellType.VerticalBody);
+                cellTypes.Add(new CellInfo(CellType.BottomRightTurn, MovementDirection.Down, MovementDirection.Down),
+                    CellType.VerticalBody);
+                cellTypes.Add(new CellInfo(CellType.BottomRightTurn, MovementDirection.Right, MovementDirection.Right),
+                    CellType.HorisontalBody);
+                cellTypes.Add(new CellInfo(CellType.BottomRightTurn, MovementDirection.Left, MovementDirection.Left),
+                    CellType.HorisontalBody);
+
+                cellTypes.Add(new CellInfo(CellType.TopRightTurn, MovementDirection.Up, MovementDirection.Up),
+                    CellType.VerticalBody);
+                cellTypes.Add(new CellInfo(CellType.TopRightTurn, MovementDirection.Down, MovementDirection.Down),
+                    CellType.VerticalBody);
+                cellTypes.Add(new CellInfo(CellType.TopRightTurn, MovementDirection.Right, MovementDirection.Right),
+                    CellType.HorisontalBody);
+                cellTypes.Add(new CellInfo(CellType.TopRightTurn, MovementDirection.Left, MovementDirection.Left),
+                    CellType.HorisontalBody);
+
+                cellTypes.Add(new CellInfo(CellType.TopLeftTurn, MovementDirection.Up, MovementDirection.Up),
+                    CellType.VerticalBody);
+                cellTypes.Add(new CellInfo(CellType.TopLeftTurn, MovementDirection.Down, MovementDirection.Down),
+                    CellType.VerticalBody);
+                cellTypes.Add(new CellInfo(CellType.TopLeftTurn, MovementDirection.Right, MovementDirection.Right),
+                    CellType.HorisontalBody);
+                cellTypes.Add(new CellInfo(CellType.TopLeftTurn, MovementDirection.Left, MovementDirection.Left),
+                    CellType.HorisontalBody);
+
+                cellTypes.Add(new CellInfo(CellType.HorisontalBody, MovementDirection.Right, MovementDirection.Right),
+                    CellType.HorisontalBody);
+                cellTypes.Add(new CellInfo(CellType.HorisontalBody, MovementDirection.Left, MovementDirection.Left),
+                    CellType.HorisontalBody);
+                cellTypes.Add(new CellInfo(CellType.VerticalBody, MovementDirection.Up, MovementDirection.Up),
+                    CellType.VerticalBody);
+                cellTypes.Add(new CellInfo(CellType.VerticalBody, MovementDirection.Down, MovementDirection.Down),
+                    CellType.VerticalBody);
+                //-------------------------------------------------------------------------------------------------------------------------------
+                tailDirection.Add(
+                    new CellInfo(CellType.BottomLeftTurn, MovementDirection.Right, MovementDirection.Right),
+                    MovementDirection.Up);
+                tailDirection.Add(new CellInfo(CellType.BottomLeftTurn, MovementDirection.Up, MovementDirection.Up),
+                    MovementDirection.Left);
+                tailDirection.Add(
+                    new CellInfo(CellType.BottomRightTurn, MovementDirection.Left, MovementDirection.Left),
+                    MovementDirection.Down);
+                tailDirection.Add(new CellInfo(CellType.BottomRightTurn, MovementDirection.Up, MovementDirection.Up),
+                    MovementDirection.Right);
+
+                tailDirection.Add(new CellInfo(CellType.TopLeftTurn, MovementDirection.Down, MovementDirection.Down),
+                    MovementDirection.Left);
+                tailDirection.Add(new CellInfo(CellType.TopLeftTurn, MovementDirection.Right, MovementDirection.Right),
+                    MovementDirection.Up);
+                tailDirection.Add(new CellInfo(CellType.TopRightTurn, MovementDirection.Down, MovementDirection.Down),
+                    MovementDirection.Right);
+                tailDirection.Add(new CellInfo(CellType.TopRightTurn, MovementDirection.Left, MovementDirection.Left),
+                    MovementDirection.Up);
+            }
+            catch
+            {
+                Debug.Log("Some shit is going here!");
+            }
         }
 
         private Dictionary<CellInfo, CellType> cellTypes= new Dictionary<CellInfo, CellType>();

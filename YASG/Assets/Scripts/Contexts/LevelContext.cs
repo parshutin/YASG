@@ -8,6 +8,7 @@ using Assets.Scripts.Mediators.Level;
 using Assets.Scripts.Snake;
 using Assets.Scripts.Views.Game;
 using Assets.Scripts.Views.Level;
+using Assets.Scripts.Views.Level.GameField;
 using strange.extensions.command.api;
 using strange.extensions.command.impl;
 using strange.extensions.context.impl;
@@ -26,8 +27,10 @@ namespace Assets.Scripts.Contexts
         protected override void mapBindings()
         {
             base.mapBindings();
-
+            
             injectionBinder.Bind<Field>().ToSingleton();
+            injectionBinder.Bind<Player>().ToSingleton();
+            injectionBinder.Bind<Timer>().ToSingleton();
             injectionBinder.Bind<SnakeContainer>().ToSingleton();
             injectionBinder.Bind<FoodContainer>().ToSingleton();
             injectionBinder.Bind<IPool<GameObject>>().To<Pool<GameObject>>().ToSingleton().ToName(GameElement.WallPool);
@@ -40,9 +43,24 @@ namespace Assets.Scripts.Contexts
             injectionBinder.Bind<RemoveFoodSignal>().ToSingleton();
             injectionBinder.Bind<CheckFieldSignal>().ToSingleton();
             injectionBinder.Bind<ChangeTimerIntervalSignal>().ToSingleton();
+            injectionBinder.Bind<ChangeMovementDirectionSignal>().ToSingleton();
+            injectionBinder.Bind<StartGameSignal>().ToSingleton();
+            injectionBinder.Bind<StartLevelSignal>().ToSingleton();
+            injectionBinder.Bind<LifesCountChangedSignal>().ToSingleton();
+            injectionBinder.Bind<ScoreChangedSignal>().ToSingleton();
+            injectionBinder.Bind<SnakeLengthChangedSignal>().ToSingleton();
+            injectionBinder.Bind<FoodItedSignal>().ToSingleton();
+            injectionBinder.Bind<LifeLostSignal>().ToSingleton();
+            injectionBinder.Bind<RestartGameSignal>().ToSingleton();
+            injectionBinder.Bind<StopGameSignal>().ToSingleton();
+            injectionBinder.Bind<CleanSnakeContainerSignal>().ToSingleton();
+            injectionBinder.Bind<StopFieldCheckingSignal>().ToSingleton();
+
 
             mediationBinder.Bind<GameFieldView>().To<GameFieldMediator>();
             mediationBinder.Bind<SnakeBodyPartView>().To<SnakeBodyPartMediator>();
+            mediationBinder.Bind<InputHelperView>().To<InputHelperMediator>();
+            mediationBinder.Bind<LevelHUDView>().To<LevelHUDMediator>();
 
             commandBinder.Bind<GenerateFieldSignal>().To<GenerateFieldCommand>();
             commandBinder.Bind<CreateSnakeBodyPartSignal>().To<CreateSnakeBodyPartCommand>();
@@ -50,6 +68,13 @@ namespace Assets.Scripts.Contexts
             commandBinder.Bind<RemoveFoodSignal>().To<RemoveFoodCommand>();
             commandBinder.Bind<CheckFieldSignal>().To<CheckFieldCommand>();
             commandBinder.Bind<ChangeTimerIntervalSignal>().To<ChangeTimerIntervalCommand>();
+            commandBinder.Bind<ChangeMovementDirectionSignal>().To<ChangeMovementDirectionCommand>();
+            commandBinder.Bind<StartLevelSignal>().To<StartLevelCommand>();
+            commandBinder.Bind<FoodItedSignal>().To<FoodItedCommand>();
+            commandBinder.Bind<LifeLostSignal>().To<LifeLostCommand>();
+            commandBinder.Bind<CleanSnakeContainerSignal>().To<CleanSnakeContainerCommand>();
+            commandBinder.Bind<StopGameSignal>().To<StopGameCommand>();
+            commandBinder.Bind<RestartGameSignal>().To<RestartGameCommand>();
         }
 
         protected override void postBindings()

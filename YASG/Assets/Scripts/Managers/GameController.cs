@@ -39,7 +39,8 @@ namespace Assets.Scripts.Managers
             _saveScorePopup.Close += SaveScorePopupOnClose;
             _gameField = new Field();
             _gameFieldManager.Init(_gameField);
-            _player = new Player(_gameField);
+            _player = new Player();
+            _player.Init(_gameField);
             _player.OnLifesCountChange += Player_OnLifesCountChange;
             _player.OnScoreChange += Player_OnScoreChange;
             _player.OnSnakeLengthChange += Player_OnSnakeLengthChange;

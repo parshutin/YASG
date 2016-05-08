@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Assets.Scripts.Commands.Level;
+﻿using Assets.Scripts.Commands.Level;
 using Assets.Scripts.Views.Level;
 using strange.extensions.mediation.impl;
+using UnityEngine;
 
 namespace Assets.Scripts.Mediators.Level
 {
@@ -32,7 +29,7 @@ namespace Assets.Scripts.Mediators.Level
 
         private void OnExitButtonClicked()
         {
-            
+            Application.LoadLevel(0);
         }
 
         public override void OnRemove()

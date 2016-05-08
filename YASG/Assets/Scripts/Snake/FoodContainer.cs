@@ -10,6 +10,12 @@ namespace Assets.Scripts.Snake
     {
         private List<FoodView> _food = new List<FoodView>();
 
+        public List<FoodView> Food
+        {
+            get { return _food; }
+        }
+
+
         public void AddFood(FoodView food)
         {
             _food.Add(food);
@@ -38,6 +44,11 @@ namespace Assets.Scripts.Snake
                     break;
                 }
             }
+        }
+
+        public void Clear()
+        {
+            _food.Clear();
         }
     }
 }

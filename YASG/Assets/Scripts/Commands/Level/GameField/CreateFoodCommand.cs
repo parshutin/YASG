@@ -27,6 +27,7 @@ namespace Assets.Scripts.Commands.Level
             food.Init(cell.Coorditanes[0], cell.Coorditanes[1]);
             instance.transform.localPosition = new Vector3(cell.Coorditanes[0], cell.Coorditanes[1], 20f);
             instance.name = "Food";
+            instance.SetActive(true);
             FoodContainer.AddFood(food);
         }
     }

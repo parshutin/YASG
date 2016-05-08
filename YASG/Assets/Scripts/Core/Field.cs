@@ -122,6 +122,7 @@ namespace Assets.Scripts.Core
             }
 
             Snake.Clear();
+            _canCreateFood = true;
         }
 
         public void CreateSnake()

@@ -55,7 +55,7 @@ namespace Assets.Scripts.Contexts
             injectionBinder.Bind<StopGameSignal>().ToSingleton();
             injectionBinder.Bind<CleanSnakeContainerSignal>().ToSingleton();
             injectionBinder.Bind<StopFieldCheckingSignal>().ToSingleton();
-
+            injectionBinder.Bind<CleanFoodContainerSignal>().ToSingleton();
 
             mediationBinder.Bind<GameFieldView>().To<GameFieldMediator>();
             mediationBinder.Bind<SnakeBodyPartView>().To<SnakeBodyPartMediator>();
@@ -73,6 +73,7 @@ namespace Assets.Scripts.Contexts
             commandBinder.Bind<FoodItedSignal>().To<FoodItedCommand>();
             commandBinder.Bind<LifeLostSignal>().To<LifeLostCommand>();
             commandBinder.Bind<CleanSnakeContainerSignal>().To<CleanSnakeContainerCommand>();
+            commandBinder.Bind<CleanFoodContainerSignal>().To<CleanFoodContainerCommand>();
             commandBinder.Bind<StopGameSignal>().To<StopGameCommand>();
             commandBinder.Bind<RestartGameSignal>().To<RestartGameCommand>();
         }

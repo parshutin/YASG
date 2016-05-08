@@ -60,6 +60,7 @@ namespace Assets.Scripts.Mediators.Level
             Field.CreateBodyPart += FieldOnCreateBodyPart;
             Field.FoodIted += OnFoodIted;
             StopFieldCheckingSignal.AddListener(StopFieldChecking);
+            GenerateFieldSignal.Dispatch(View.transform);
             StartLevelSignal.Dispatch();
         }
 
@@ -83,7 +84,6 @@ namespace Assets.Scripts.Mediators.Level
 
         private void StartGame()
         {
-            GenerateFieldSignal.Dispatch(View.transform);
             _gameStarted = true;
         }
 

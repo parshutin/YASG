@@ -31,15 +31,8 @@ namespace Assets.Scripts.Commands.Level
             var instance = Pool.GetInstance();
             instance.transform.SetParent(FieldTransform);
             instance.transform.position = new Vector3(Cell.Coorditanes[0], Cell.Coorditanes[1], 20f);
+            instance.SetActive(true);
             SnakeContainer.AddSnakeBodyPart(instance.GetComponent<SnakeBodyPartView>());
-            /*
-            _snake.Add(go.GetComponent<SnakeBodyPart>());
-            _snake[_snake.Count - 1].Cell = cell;
-            _snake[_snake.Count - 1].Init();
-            if (_snake.Count > 4)
-            {
-                Swap(_snake.Count - 1, _snake.Count - 2);
-            }*/
         }
     }
 }

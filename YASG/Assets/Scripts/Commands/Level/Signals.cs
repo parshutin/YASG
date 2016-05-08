@@ -47,5 +47,10 @@ namespace Assets.Scripts.Commands.Level
 
     public class CleanSnakeContainerSignal :Signal { }
 
+    public class CleanFoodContainerSignal : Signal { }
+
     public class StopFieldCheckingSignal : Signal { }
+
+    public class OpenGameOverPopupSignal : Signal { }
+
 }

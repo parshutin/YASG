@@ -21,6 +21,9 @@ namespace Assets.Scripts.Commands.Level.GameField
         public StartGameSignal StartGameSignal { get; set; }
 
         [Inject]
+        public CleanFoodContainerSignal CleanFoodContainerSignal { get; set; }
+
+        [Inject]
         public Timer Timer { get; set; }
 
         [Inject]
@@ -29,6 +32,7 @@ namespace Assets.Scripts.Commands.Level.GameField
         public override void Execute()
         {
             StopGameSignal.Dispatch();
+            CleanFoodContainerSignal.Dispatch();
             Field.CreateSnake();
             Timer.loop = true;
             Timer.SetDelta(DeltaSpeed);

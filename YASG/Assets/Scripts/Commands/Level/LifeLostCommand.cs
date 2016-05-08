@@ -24,6 +24,9 @@ namespace Assets.Scripts.Commands.Level
         [Inject]
         public StopGameSignal StopGameSignal { get; set; }
 
+        //[Inject]
+        //public OpenGameOverPopupSignal OpenGameOverPopupSignal { get; set; }
+
         public override void Execute()
         {
             Player.RemoveLife();
@@ -33,6 +36,7 @@ namespace Assets.Scripts.Commands.Level
             if (Player.Lifes == 0)
             {
                 StopGameSignal.Dispatch();
+                //OpenGameOverPopupSignal.Dispatch();
             }
             else
             {

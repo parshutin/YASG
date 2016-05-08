@@ -86,6 +86,7 @@
     <Compile Include="Assets\Scripts\Commands\Level\GameField\ChangeMovementDirectionCommand.cs" />
     <Compile Include="Assets\Scripts\Commands\Level\GameField\ChangeTimerIntervalCommand.cs" />
     <Compile Include="Assets\Scripts\Commands\Level\GameField\CheckFieldCommand.cs" />
+    <Compile Include="Assets\Scripts\Commands\Level\GameField\CleanFoodContainerCommand.cs" />
     <Compile Include="Assets\Scripts\Commands\Level\GameField\CreateFoodCommand.cs" />
     <Compile Include="Assets\Scripts\Commands\Level\GameField\CreateSnakeBodyPartCommand.cs" />
     <Compile Include="Assets\Scripts\Commands\Level\GameField\FoodItedCommand.cs" />
